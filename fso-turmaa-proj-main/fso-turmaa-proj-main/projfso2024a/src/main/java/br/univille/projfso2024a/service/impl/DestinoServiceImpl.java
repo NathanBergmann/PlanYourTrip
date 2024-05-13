@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.univille.projfso2024a.entity.Destino;
-import br.univille.projfso2024a.repository.DestinatarioRepository.DestinoRepository;
+import br.univille.projfso2024a.repository.DestinoRepository;
 import br.univille.projfso2024a.service.DestinoService;
 
 @Service
