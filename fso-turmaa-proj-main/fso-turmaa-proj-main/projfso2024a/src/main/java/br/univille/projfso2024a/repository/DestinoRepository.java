@@ -5,11 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import br.univille.projfso2024a.entity.Destino;
 
-public class DestinatarioRepository {
-    
 @Repository
 public interface DestinoRepository 
         extends JpaRepository<Destino,Long>{
     
-}
 }
