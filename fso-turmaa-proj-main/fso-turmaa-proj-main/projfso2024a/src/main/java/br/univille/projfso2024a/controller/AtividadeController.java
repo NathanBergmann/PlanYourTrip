@@ -21,7 +21,7 @@ public class AtividadeController {
     @GetMapping
     public ModelAndView index(){
         var listaAtividades = service.getAll();
-        return new ModelAndView("atividade/index","listaAtiviades",listaAtividades);
+        return new ModelAndView("atividade/index","listaAtividades",listaAtividades);
     }
 
     @GetMapping("/novo")
