@@ -16,4 +16,15 @@
             }
         })
     })
+    $("#btnsim").on("click", function(){
+        let botaosim = $(this)
+        let id = botaosim.attr("data-id")
+        $.ajax({
+            url: "/destinos/delete/" + id,
+            method: "GET",
+            success: function(){
+                window.location.href = "/destinos"
+            }
+        })
+    })
 })()

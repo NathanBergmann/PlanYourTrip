@@ -1,15 +1,15 @@
 package br.univille.projfso2024a;
 
-import java.util.Date;
+// import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.context.event.ContextRefreshedEvent;
+// import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import br.univille.projfso2024a.entity.Cliente;
-import br.univille.projfso2024a.service.ClienteService;
-import br.univille.projfso2024a.service.DestinoService;
-import br.univille.projfso2024a.entity.Destino;
+// import br.univille.projfso2024a.entity.Cliente;
+// import br.univille.projfso2024a.service.ClienteService;
+// import br.univille.projfso2024a.service.DestinoService;
+// import br.univille.projfso2024a.entity.Destino;
 
 
 @Component
@@ -26,15 +26,15 @@ public class Startup {
     //     service.save(cliente1);
     // }
 
-    @Autowired
-    private DestinoService destino;
+    // @Autowired
+    // private DestinoService destino;
 
-    @EventListener
-    public void onApplicationEvent(ContextRefreshedEvent event){
-        var destinoParam = new Destino();
-        destinoParam.setDescricao("Andar de moto");
-        destinoParam.setQuantidade(2);
-        destino.save(destinoParam);
-    }   
+    // @EventListener
+    // public void onApplicationEvent(ContextRefreshedEvent event){
+    //     var destinoParam = new Destino();
+    //     destinoParam.setDescricao("Andar de moto");
+    //     destinoParam.setQuantidadeNoite(2);
+    //     destino.save(destinoParam);
+    // }   
 
 }

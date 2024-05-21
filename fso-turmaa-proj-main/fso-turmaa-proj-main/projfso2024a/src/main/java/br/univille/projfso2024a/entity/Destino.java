@@ -17,7 +17,7 @@ public class Destino {
     private String descricao;
     @Column(length = 2000)
     private Boolean vaiDormir;
-    private int quantidadeNoites;
+    private int quantidadeNoite;
     private double valorNoite;
 
     public void setId(long id){
@@ -36,19 +36,27 @@ public class Destino {
         return this.descricao;
     }
 
-    public void setQuantidade (int quantidade){
-        this.quantidadeNoites = quantidade;
+    public void setQuantidadeNoite (int quantidade){
+        this.quantidadeNoite = quantidade;
     }
 
-    public int getQuantidade (){
-        return this.quantidadeNoites;
+    public int getQuantidadeNoite (){
+        return this.quantidadeNoite;
     }
 
-    public void valorNoite (Double valor){
+    public void setValorNoite (Double valor){
         this.valorNoite = valor;
     }
 
     public Double getValorNoite (){
         return this.valorNoite;
+    }
+
+    public Boolean getVaiDormir (){
+        return this.vaiDormir;
+    }
+
+    public void setVaiDormir (Boolean vaiDormir){
+        this.vaiDormir = vaiDormir;
     }
 }
