@@ -1,10 +1,13 @@
 package br.univille.projfso2024a.entity;
 
 import java.time.LocalDate;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Atividade {
@@ -14,6 +17,15 @@ public class Atividade {
     private String nome;
     private double custo;
     private LocalDate data;
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private Destino destino;
+
+    public Destino getDestino() {
+        return destino;
+    }
+    public void setDestino(Destino destino) {
+        this.destino = destino;
+    }
     public long getId() {
         return id;
     }

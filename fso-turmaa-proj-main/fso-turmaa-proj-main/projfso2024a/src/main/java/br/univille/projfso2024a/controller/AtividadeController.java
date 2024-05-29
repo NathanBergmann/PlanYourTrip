@@ -1,5 +1,7 @@
 package br.univille.projfso2024a.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.projfso2024a.entity.Atividade;
 import br.univille.projfso2024a.service.AtividadeService;
+import br.univille.projfso2024a.service.DestinoService;
 
 @Controller
 @RequestMapping("/atividades")
@@ -18,16 +21,27 @@ public class AtividadeController {
     @Autowired
     private AtividadeService service;
 
+    @Autowired
+    private DestinoService serviceDestino;
+
     @GetMapping
     public ModelAndView index(){
         var listaAtividades = service.getAll();
-        return new ModelAndView("atividade/index","listaAtividades",listaAtividades);
+        var listaDestinos = serviceDestino.getAll();
+        HashMap<String, Object> dados= new HashMap<>();
+        dados.put("listaAtividades",listaAtividades);
+        dados.put("listaDestinos", listaDestinos);
+        return new ModelAndView("atividade/index",dados);
     }
 
     @GetMapping("/novo")
     public ModelAndView novo(){
         var atividade = new Atividade();
-        return new ModelAndView("atividade/form","atividade",atividade);
+        var listaDestinos = serviceDestino.getAll();
+        HashMap<String, Object> dados= new HashMap<>();
+        dados.put("atividade",atividade);
+        dados.put("listaDestinos", listaDestinos);
+        return new ModelAndView("atividade/form",dados);
     }
 
     @PostMapping
@@ -39,7 +53,11 @@ public class AtividadeController {
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
         var atividade = service.getById(id);
-        return new ModelAndView("atividade/form", "atividade",atividade);
+        var listaDestinos = serviceDestino.getAll();
+        HashMap<String, Object> dados= new HashMap<>();
+        dados.put("atividade",atividade);
+        dados.put("listaDestinos", listaDestinos);
+        return new ModelAndView("atividade/form", dados);
     }
 
     @GetMapping("/delete/{id}")
